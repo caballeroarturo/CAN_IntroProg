@@ -1,14 +1,13 @@
 //        Reglas de convención en Java
-// Elemento	Convención	Ejemplo
+
 // Clases	Empiezan con mayúscula	Persona, Main, Calculadora
 // Métodos	Empiezan con minúscula	saludar(), main(), calcular()
 // Variables	Empiezan con minúscula	nombre, edad, persona1
 // Constantes	TODAS MAYÚSCULAS	PI, MAX_VALUE
 // Paquetes	Todo minúscula	java.util, mi.programa
+
+
 // Esta clase NO es pública (solo visible dentro del archivo)
-
-
-
 // Clase (sin main) que hace el trabajo pero no inicia nada
 class Persona {
     // atributos
