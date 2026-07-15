@@ -1,3 +1,4 @@
+
 /*
 Condicional if else
 
@@ -26,11 +27,18 @@ public class j04_Condicional_IF {
         // --------------------- Ejemplo 1
         // --------------------- ------------
 
-        double precioAuto = 270000;
-        
+        double precioAuto = 40000;
+        double conimpuesto = precioAuto * (1.10);
+
         if (precioAuto > 500000) {
             System.out.println("Este auto es de lujo. Aplicar impuesto extra.");
+            System.out.println("Precio con impuesto: $" + conimpuesto);
+            System.out.println("El impuesto es del 10%");
+        } else {
+            System.out.println("Este auto no es de lujo.");
+            System.out.println("No tiene impuesto");
         }
+
         /* Se lee de la siguiente manera:
         
         Si (el precio del auto es mayor a 500000) entonces
@@ -51,9 +59,11 @@ public class j04_Condicional_IF {
             System.out.println("Eres mayor de edad. Puedes votar.");
 
         } else {
-            System.out.println("Eres menor de edad. No puedes votar.");
-        }
 
+            System.out.println("Eres menor de edad. No puedes votar.");
+
+        }
+          System.out.println("Tu edad es: " + edad);
         /* Se lee de la siguiente manera:
         
         Si (la edad es mayor o igual a 18) entonces
@@ -71,7 +81,7 @@ public class j04_Condicional_IF {
 
         double presupuesto = 350000;
         double precioAuto1 = 320000;
-        boolean esNuevo = true;
+        boolean esNuevo = false;
 
         if ((precioAuto1 <= presupuesto) && esNuevo) {
             System.out.println("¡Puedes comprar el auto nuevo!");
