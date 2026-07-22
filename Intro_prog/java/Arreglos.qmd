@@ -1,0 +1,91 @@
+---
+title: "Arreglos"
+format: html
+---
+
+Un arreglo (o array) en Java es una **estructura de datos que te permite guardar múltiples valores del mismo tipo bajo una sola variable**, **en lugar de tener que crear una variable distinta para cada valor.**
+
+Piensa en un arreglo como una fila de casilleros numerados: todos los casilleros son del mismo tamaño (el mismo tipo de dato) y cada uno tiene una posición fija para encontrarlo rápido.
+
+Características clave
+
+-   **Tamaño fijo**: Una vez que defines cuántos elementos va a guardar el arreglo, no puedes cambiar su tamaño.
+
+-   **Mismo tipo de dato**: Todos los elementos dentro del arreglo deben ser iguales (solo int, solo String, boolen/tipo lógico, etc.).
+
+-   **Índices basados en cero**: El primer elemento siempre está en la posición 0, el segundo en la 1, y así sucesivamente.
+
+### ¿Cuándo conviene usarlo?
+
+Es ideal cuando **conoces de antemano la cantidad exacta de elementos que vas a manejar** (por ejemplo, los 12 meses del año o los 7 días de la semana) y **buscas un acceso directo y muy rápido en memoria**.
+
+*Si necesitas una lista que cambie de tamaño dinámicamente (agregar y quitar elementos según sea necesario), en Java suele ser mejor opción usar estructuras como `ArrayList`.*
+
+### 1. Los corchetes `[]`
+
+Se usan para **definir el tipo** de arreglo y para **acceder o modificar una posición específica** (índice).
+
+### 2. Las llaves `{}`
+
+Se usan **únicamente para inicializar** el arreglo con sus valores directamente en una sola línea (sin tener que usar `new` ni asignar posición por posición).
+
+**Nota:** con los **`ArrayList`:** Si das el paso a `ArrayList`, no usas ninguno de los dos para manejar elementos; usas métodos con paréntesis `()`, como `lista.add("Hola")` o `lista.get(0)`.
+
+## ArrayList
+
+Un **`ArrayList`** en Java es una lista dinámica diseñada exclusivamente para ***almacenar y administrar objetos.***
+
+A diferencia de un arreglo tradicional (que solo puede guardar una cantidad fija de datos), un `ArrayList` es una estructura flexible que cambia de tamaño según los objetos que decidas agregar o quitar en tiempo de ejecución.
+
+#### 1. Todo en un `ArrayList` es un objeto
+
+Cuando trabajas con un `ArrayList`, Java exige que cada elemento de la lista sea un **objeto**.
+
+-   Si quieres guardar texto, guardas **objetos de tipo `String`**.
+
+-   Si quieres guardar usuarios, guardas **objetos de tu propia clase `Usuario`**.
+
+-   Si quieres guardar números, no puedes usar el número primitivo directo (`int`); debes usar su **objeto envoltorio** (`Integer`).
+
+#### 2. Operaciones principales con objetos
+
+El ArrayList te proporciona un conjunto de métodos (funciones) para manipular los objetos dentro de él:
+
+-   Agregar un objeto (.add): Coloca un nuevo objeto al final de la lista.
+
+-   Obtener un objeto (.get): Busca y te devuelve el objeto que está en la posición que le pidas.
+
+-   Reemplazar un objeto (.set): Sustituye el objeto de una posición por un objeto nuevo.
+
+-   Eliminar un objeto (.remove): Quita un objeto específico de la lista y encoge la estructura automáticamente.
+
+## Tabla comparativa directa
+
+|  |  |  |
+|---------------|-----------------------|----------------------------------|
+| **Operación** | **Arreglo tradicional (int\[\])** | **ArrayList (ArrayList\<Integer\>)** |
+| **Obtener** | `arreglo[i]` *(Sintaxis de corchetes)* | `lista.get(i)` *(Método)* |
+| **Modificar (Set)** | `arreglo[i] = nuevoValor;` *(Asignación)* | `lista.set(i, nuevoValor);` *(Método)* |
+| **Agregar** | **No se puede.** Requiere crear otro arreglo más grande. | `lista.add(nuevoValor);` *(Método)* |
+| **Eliminar** | **No se puede.** Requiere crear otro arreglo más pequeño. | `lista.remove(i);` *(Método)* |
+
+## Tipos de datos
+
+Los ***`tipos primitivos`*** son los datos más básicos de Java: `int`, `double`, `boolean`, `char`, etc.
+
+-   Son **ligeros y directos**: Guardan únicamente el valor puro dentro de la caja.
+
+-   ***No tienen "habilidades"***: Un `int` vale `5` y nada más. No puedes pedirle cosas como "conviértete a texto" o "dime tu tamaño", porque no es un objeto, es solo un número guardado en memoria.
+
+## Objetos - Clases Wrapper
+
+Un objeto no solo guarda un dato, sino que **viene acompañado de funciones (métodos)** para operar con ese dato.
+
+Para cada tipo primitivo, **Java creó una "envolutura" (o *Wrapper*) que es un objeto** y se escribe con **Mayúscula**:
+
+|                             |                                      |
+|-----------------------------|--------------------------------------|
+| **Tipo Primitivo (Simple)** | **Objeto Wrapper (Con habilidades)** |
+| `int`                       | `Integer`                            |
+| `double`                    | `Double`                             |
+| `boolean`                   | `Boolean`                            |
