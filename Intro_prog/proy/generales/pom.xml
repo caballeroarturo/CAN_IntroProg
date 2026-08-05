@@ -1,0 +1,112 @@
+<!--
+  pom.xml es el archivo de configuración principal de un proyecto Maven.
+  Aquí se definen el nombre del proyecto, sus dependencias, versiones de Java, etc.
+-->
+
+<!--
+  Etiqueta raíz del proyecto.
+  xmlns son namespaces (espacios de nombres) necesarios para que Maven entienda el XML.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!--
+      modelVersion: indica la versión del modelo POM que se está usando.
+      Siempre debe ser 4.0.0 para proyectos Maven actuales.
+    -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--
+      groupId: identifica de manera única a tu organización o grupo.
+      Normalmente se usa el dominio invertido (como com.ejemplo, org.apache, etc.)
+      Esto ayuda a identificar de quién es el proyecto.
+    -->
+    <groupId>com.ejemplo</groupId>
+
+    <!--
+      artifactId: es el nombre único de este proyecto dentro del grupo.
+      Coincide con el nombre de la carpeta del proyecto y del JAR que se genera.
+    -->
+    <artifactId>generales</artifactId>
+
+    <!--
+      version: la versión de este proyecto.
+      SNAPSHOT significa que está en desarrollo y no es una versión estable.
+    -->
+    <version>1.0-SNAPSHOT</version>
+
+    <!--
+      properties: aquí se definen variables que se usan en todo el pom.
+      Son útiles para centralizar configuraciones como la versión de Java.
+    -->
+    <properties>
+        <!--
+          maven.compiler.source: versión de Java con la que se compila el código.
+          Se pone 17, pero podría ser 8, 11, 21, etc.
+          Esto le dice a Maven que use Java 17 para compilar.
+        -->
+        <maven.compiler.source>17</maven.compiler.source>
+
+        <!--
+          maven.compiler.target: versión de Java para la que se genera el bytecode.
+          Debe ser igual o menor a la versión de Java que tengas instalada.
+          Con 17 aseguramos compatibilidad con Java 17.
+        -->
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
+
+    <!--
+      dependencies: aquí se listan todas las librerías externas que necesita el proyecto.
+      Maven las descargará automáticamente desde el repositorio central (Maven Central).
+    -->
+    <dependencies>
+
+        <!--
+          Cada dependencia se define con un <dependency>.
+          Necesita groupId, artifactId y version para identificar la librería.
+        -->
+        <dependency>
+            <!--
+              groupId: organización que creó la librería.
+              org.apache.poi es el grupo de Apache para POI.
+            -->
+            <groupId>org.apache.poi</groupId>
+
+            <!--
+              artifactId: nombre de la librería específica.
+              poi-ooxml es la que permite leer archivos .xlsx (Excel 2007+).
+              También incluye soporte para .xls (versiones antiguas).
+            -->
+            <artifactId>poi-ooxml</artifactId>
+
+            <!--
+              version: número de versión de la librería.
+              5.5.1 es la versión más reciente estable a la fecha (2026).
+              Se puede cambiar por 5.2.5 si se prefiere.
+            -->
+            <version>5.5.1</version>
+
+            <!--
+              scope: (opcional) define en qué fase del ciclo de vida se usa.
+              Si no se pone, es 'compile' por defecto (disponible siempre).
+              No lo ponemos porque lo necesitamos en todo momento.
+            -->
+        </dependency>
+
+        <!--
+          En algunos casos, también se necesita la dependencia 'poi' (core).
+          Pero poi-ooxml ya la incluye automáticamente (transitivamente).
+          Por eso no es necesario agregarla aparte.
+        -->
+
+    </dependencies>
+
+    <!--
+      build: (opcional) configura cómo se construye el proyecto.
+      No lo incluimos porque el arquetipo quickstart ya tiene valores por defecto.
+      Si necesitáramos empaquetar con dependencias, agregaríamos plugins aquí.
+    -->
+
+</project>

@@ -1,5 +1,8 @@
 package util;
 
+import model.ApplicationState;
+import org.apache.poi.ss.usermodel.Workbook;
+
 import java.util.Scanner;
 
 public class Console {
@@ -44,6 +47,54 @@ public class Console {
         return option;
 
     }
+    public void showInvalidOption() {
 
+        System.out.println("----------------------------");
+        System.out.println("    Opción inválida");
+        System.out.println("----------------------------");
 
+    }
+
+    public void showExitMessage() {
+
+        System.out.println("----------------------------");
+        System.out.println("Se termina la sesión.");
+        System.out.println("----------------------------");
+    }
+
+    public void showWorkbookInfo(Workbook workbook) {
+
+        System.out.println();
+        System.out.println("Libro abierto correctamente.");
+        System.out.println();
+
+        System.out.println("Número de hojas: " + workbook.getNumberOfSheets());
+
+        for (int i = 0; i < workbook.getNumberOfSheets(); i++) {
+            System.out.println(workbook.getSheetName(i));
+        }
+    }
+
+    public void showNoFileOpened() {
+
+        System.out.println("--------------------------------");
+        System.out.println("No hay ningún archivo abierto.");
+        System.out.println("Seleccione primero la opción 1.");
+        System.out.println("--------------------------------");
+
+    }
+    public void showStatus(ApplicationState state) {
+
+        System.out.println("====================================");
+        System.out.println("      DATA ANALYZER v1.0");
+        System.out.println("====================================");
+
+        if(state.getFilePath() == null){
+            System.out.println("Archivo: Ninguno");
+        }else{
+            System.out.println("Archivo: " + state.getFilePath());
+        }
+        System.out.println();
+
+    }
 }

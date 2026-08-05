@@ -1,0 +1,157 @@
+<html>
+<head>
+<title>ExcelColumnNames.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #5f826b; font-style: italic;}
+.s5 { color: #6aab73;}
+.s6 { color: #67a37c; font-style: italic;}
+.s7 { color: #2aacb8;}
+.ls0 { height: 1px; border-width: 0; color: #43454a; background-color:#43454a}
+</style>
+</head>
+<body bgcolor="#191a1c">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+ExcelColumnNames.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com</span><span class="s2">.</span><span class="s1">ejemplo</span><span class="s2">;</span>
+
+<span class="s3">// Importaciones necesarias para trabajar con archivos Excel usando Apache POI</span>
+<span class="s0">import </span><span class="s1">org</span><span class="s2">.</span><span class="s1">apache</span><span class="s2">.</span><span class="s1">poi</span><span class="s2">.</span><span class="s1">ss</span><span class="s2">.</span><span class="s1">usermodel</span><span class="s2">.*;          </span><span class="s3">// Contiene las interfaces básicas como Workbook, Sheet, Row, Cell</span>
+<span class="s0">import </span><span class="s1">org</span><span class="s2">.</span><span class="s1">apache</span><span class="s2">.</span><span class="s1">poi</span><span class="s2">.</span><span class="s1">xssf</span><span class="s2">.</span><span class="s1">usermodel</span><span class="s2">.</span><span class="s1">XSSFWorkbook</span><span class="s2">; </span><span class="s3">// Para leer archivos .xlsx (Excel 2007+)</span>
+<span class="s0">import </span><span class="s1">org</span><span class="s2">.</span><span class="s1">apache</span><span class="s2">.</span><span class="s1">poi</span><span class="s2">.</span><span class="s1">hssf</span><span class="s2">.</span><span class="s1">usermodel</span><span class="s2">.</span><span class="s1">HSSFWorkbook</span><span class="s2">; </span><span class="s3">// Para leer archivos .xls (Excel 97-2003)</span>
+
+<span class="s3">// Importaciones para la interfaz gráfica (JFileChooser) y manejo de archivos</span>
+<span class="s0">import </span><span class="s1">javax</span><span class="s2">.</span><span class="s1">swing</span><span class="s2">.*;                          </span><span class="s3">// JFrame, JFileChooser, JOptionPane, etc.</span>
+<span class="s0">import </span><span class="s1">javax</span><span class="s2">.</span><span class="s1">swing</span><span class="s2">.</span><span class="s1">filechooser</span><span class="s2">.</span><span class="s1">FileNameExtensionFilter</span><span class="s2">; </span><span class="s3">// Para filtrar archivos por extensión</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">io</span><span class="s2">.</span><span class="s1">File</span><span class="s2">;                           </span><span class="s3">// Representa un archivo en el sistema</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">io</span><span class="s2">.</span><span class="s1">FileInputStream</span><span class="s2">;                </span><span class="s3">// Para leer datos del archivo</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">io</span><span class="s2">.</span><span class="s1">IOException</span><span class="s2">;                    </span><span class="s3">// Para manejar errores de entrada/salida</span>
+
+
+<span class="s4">/**</span>
+ <span class="s4">* Clase principal que abre un cuadro de diálogo para seleccionar un archivo Excel,</span>
+ <span class="s4">* lee la primera hoja y muestra los nombres de las columnas en la consola.</span>
+ <span class="s4">*/</span>
+
+
+<span class="s0">public class </span><span class="s1">ExcelColumnNames </span><span class="s2">{</span>
+
+    <span class="s3">// Metodo principal (punto de entrada de la aplicación)</span>
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+        <span class="s3">// SwingUtilities.invokeLater asegura que la interfaz gráfica se ejecute en el hilo de eventos de Swing</span>
+        <span class="s3">// Esto es importante para evitar problemas de concurrencia en interfaces gráficas</span>
+        <span class="s1">SwingUtilities</span><span class="s2">.</span><span class="s1">invokeLater</span><span class="s2">(() </span><span class="s1">-&gt; </span><span class="s2">{</span>
+            <span class="s3">// Creamos un objeto JFileChooser para que el usuario seleccione un archivo</span>
+            <span class="s1">JFileChooser fileChooser </span><span class="s2">= </span><span class="s0">new </span><span class="s1">JFileChooser</span><span class="s2">();</span>
+            <span class="s3">// Le ponemos un título a la ventana de selección</span>
+            <span class="s1">fileChooser</span><span class="s2">.</span><span class="s1">setDialogTitle</span><span class="s2">(</span><span class="s5">&quot;Selecciona un archivo Excel&quot;</span><span class="s2">);</span>
+
+            <span class="s3">// Creamos un filtro para mostrar solo archivos con extensiones .xls y .xlsx</span>
+            <span class="s1">FileNameExtensionFilter filter </span><span class="s2">= </span><span class="s0">new </span><span class="s1">FileNameExtensionFilter</span><span class="s2">(</span>
+                    <span class="s5">&quot;Archivos Excel (*.xls, *.xlsx)&quot;</span><span class="s2">, </span><span class="s5">&quot;xls&quot;</span><span class="s2">, </span><span class="s5">&quot;xlsx&quot;</span><span class="s2">);</span>
+
+            <span class="s1">fileChooser</span><span class="s2">.</span><span class="s1">setFileFilter</span><span class="s2">(</span><span class="s1">filter</span><span class="s2">);</span>
+
+            <span class="s3">// Mostramos la ventana de selección y guardamos la acción del usuario (si seleccionó o canceló)</span>
+            <span class="s0">int </span><span class="s1">result </span><span class="s2">= </span><span class="s1">fileChooser</span><span class="s2">.</span><span class="s1">showOpenDialog</span><span class="s2">(</span><span class="s0">null</span><span class="s2">);</span>
+
+            <span class="s3">// Si el usuario presionó &quot;Abrir&quot; (Aprobar)...</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">result </span><span class="s2">== </span><span class="s1">JFileChooser</span><span class="s2">.</span><span class="s1">APPROVE_OPTION</span><span class="s2">) {</span>
+                <span class="s3">// Obtenemos el archivo seleccionado</span>
+                <span class="s1">File selectedFile </span><span class="s2">= </span><span class="s1">fileChooser</span><span class="s2">.</span><span class="s1">getSelectedFile</span><span class="s2">();</span>
+                <span class="s0">try </span><span class="s2">{</span>
+                    <span class="s3">// Se llama al metodo que lee e imprime los nombres de las columnas</span>
+                    <span class="s1">printColumnNames</span><span class="s2">(</span><span class="s1">selectedFile</span><span class="s2">);</span>
+                <span class="s2">} </span><span class="s0">catch </span><span class="s2">(</span><span class="s1">IOException e</span><span class="s2">) {</span>
+                    <span class="s3">// Si ocurre un error al leer el archivo, se muestra un mensaje en una ventana emergente</span>
+                    <span class="s1">JOptionPane</span><span class="s2">.</span><span class="s1">showMessageDialog</span><span class="s2">(</span><span class="s0">null</span><span class="s2">,</span>
+                            <span class="s5">&quot;Error al leer el archivo: &quot; </span><span class="s2">+ </span><span class="s1">e</span><span class="s2">.</span><span class="s1">getMessage</span><span class="s2">(),</span>
+                            <span class="s5">&quot;Error&quot;</span><span class="s2">, </span><span class="s1">JOptionPane</span><span class="s2">.</span><span class="s1">ERROR_MESSAGE</span><span class="s2">);</span>
+                <span class="s2">}</span>
+            <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+                <span class="s3">// Si el usuario canceló o cerró la ventana sin seleccionar</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;No se seleccionó ningún archivo.&quot;</span><span class="s2">);</span>
+            <span class="s2">}</span>
+        <span class="s2">});</span>
+    <span class="s2">}</span>
+<hr class="ls0">    <span class="s4">/**</span>
+     <span class="s4">* Metodo que recibe un archivo Excel, lo abre, lee la primera hoja y</span>
+     <span class="s4">* muestra en consola los nombres de las columnas (asumiendo que están en la primera fila).</span>
+     <span class="s4">*</span>
+     <span class="s4">* </span><span class="s6">@param </span><span class="s4">file El archivo Excel seleccionado por el usuario.</span>
+     <span class="s4">* </span><span class="s6">@throws </span><span class="s4">IOException Si hay problemas al leer el archivo.</span>
+     <span class="s4">*/</span>
+    <span class="s0">private static void </span><span class="s1">printColumnNames</span><span class="s2">(</span><span class="s1">File file</span><span class="s2">) </span><span class="s0">throws </span><span class="s1">IOException </span><span class="s2">{</span>
+        <span class="s3">// Obtenemos el nombre del archivo para determinar su extensión</span>
+        <span class="s1">String fileName </span><span class="s2">= </span><span class="s1">file</span><span class="s2">.</span><span class="s1">getName</span><span class="s2">();</span>
+
+        <span class="s3">// Declaramos una variable Workbook (libro de trabajo) que será el objeto que representa el Excel</span>
+        <span class="s1">Workbook workbook</span><span class="s2">;</span>
+
+        <span class="s3">// Usamos try-with-resources para asegurar que el FileInputStream se cierre automáticamente</span>
+        <span class="s3">// (No necesitamos cerrar el stream manualmente con finally)</span>
+        <span class="s0">try </span><span class="s2">(</span><span class="s1">FileInputStream fis </span><span class="s2">= </span><span class="s0">new </span><span class="s1">FileInputStream</span><span class="s2">(</span><span class="s1">file</span><span class="s2">)) {</span>
+            <span class="s3">// Verificamos si el archivo termina en .xlsx (Excel moderno basado en XML)</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">fileName</span><span class="s2">.</span><span class="s1">endsWith</span><span class="s2">(</span><span class="s5">&quot;.xlsx&quot;</span><span class="s2">)) {</span>
+                <span class="s3">// Si es .xlsx, creamos un libro de trabajo XSSFWorkbook (para Excel 2007+)</span>
+                <span class="s1">workbook </span><span class="s2">= </span><span class="s0">new </span><span class="s1">XSSFWorkbook</span><span class="s2">(</span><span class="s1">fis</span><span class="s2">);</span>
+            <span class="s2">}</span>
+            <span class="s3">// Si no es .xlsx, verificamos si termina en .xls (Excel antiguo, formato binario)</span>
+            <span class="s0">else if </span><span class="s2">(</span><span class="s1">fileName</span><span class="s2">.</span><span class="s1">endsWith</span><span class="s2">(</span><span class="s5">&quot;.xls&quot;</span><span class="s2">)) {</span>
+                <span class="s3">// Si es .xls, creamos un libro de trabajo HSSFWorkbook (para Excel 97-2003)</span>
+                <span class="s1">workbook </span><span class="s2">= </span><span class="s0">new </span><span class="s1">HSSFWorkbook</span><span class="s2">(</span><span class="s1">fis</span><span class="s2">);</span>
+            <span class="s2">}</span>
+            <span class="s3">// Si la extensión no es reconocida, lanzamos una excepción</span>
+            <span class="s0">else </span><span class="s2">{</span>
+                <span class="s0">throw new </span><span class="s1">IllegalArgumentException</span><span class="s2">(</span><span class="s5">&quot;El archivo no tiene extensión .xls o .xlsx&quot;</span><span class="s2">);</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+        <span class="s3">// Nota: el try-with-resources cierra automáticamente 'fis' al salir del bloque,</span>
+        <span class="s3">// pero 'workbook' aún está abierto. Lo cerraremos al final.</span>
+
+        <span class="s3">// Obtenemos la primera hoja del libro (índice 0)</span>
+        <span class="s3">// Las hojas en Excel se numeran desde 0</span>
+        <span class="s1">Sheet sheet </span><span class="s2">= </span><span class="s1">workbook</span><span class="s2">.</span><span class="s1">getSheetAt</span><span class="s2">(</span><span class="s7">0</span><span class="s2">);</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">sheet </span><span class="s2">== </span><span class="s0">null</span><span class="s2">) {</span>
+            <span class="s3">// Si la hoja es nula (no existe), mostramos mensaje y cerramos el libro</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;La hoja está vacía o no existe.&quot;</span><span class="s2">);</span>
+            <span class="s1">workbook</span><span class="s2">.</span><span class="s1">close</span><span class="s2">(); </span><span class="s3">// Cerramos el libro para liberar recursos</span>
+            <span class="s0">return</span><span class="s2">; </span><span class="s3">// Salimos del metodo</span>
+        <span class="s2">}</span>
+
+        <span class="s3">// Obtenemos la primera fila de la hoja (fila 0)</span>
+        <span class="s3">// Asumimos que en la fila 0 están los encabezados (nombres de columnas)</span>
+        <span class="s1">Row headerRow </span><span class="s2">= </span><span class="s1">sheet</span><span class="s2">.</span><span class="s1">getRow</span><span class="s2">(</span><span class="s7">0</span><span class="s2">);</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">headerRow </span><span class="s2">== </span><span class="s0">null</span><span class="s2">) {</span>
+            <span class="s3">// Si no hay fila 0 (hoja vacía), mostramos mensaje y cerramos el libro</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;No se encontró la fila de encabezados (fila 0).&quot;</span><span class="s2">);</span>
+            <span class="s1">workbook</span><span class="s2">.</span><span class="s1">close</span><span class="s2">();</span>
+            <span class="s0">return</span><span class="s2">;</span>
+        <span class="s2">}</span>
+
+        <span class="s3">// Imprimimos un encabezado en la consola</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Nombres de las columnas (primera fila):&quot;</span><span class="s2">);</span>
+
+        <span class="s3">// Recorremos todas las celdas de la fila de encabezados</span>
+        <span class="s3">// headerRow es un objeto Row que contiene celdas (Cell)</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s1">Cell cell </span><span class="s2">: </span><span class="s1">headerRow</span><span class="s2">) {</span>
+            <span class="s3">// Obtenemos el valor de la celda como cadena de texto (String)</span>
+            <span class="s1">String columnName </span><span class="s2">= </span><span class="s1">cell</span><span class="s2">.</span><span class="s1">getStringCellValue</span><span class="s2">();</span>
+            <span class="s3">// Imprimimos el nombre de la columna con un guion para mejor legibilidad</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;- &quot; </span><span class="s2">+ </span><span class="s1">columnName</span><span class="s2">);</span>
+        <span class="s2">}</span>
+
+        <span class="s3">// Cerramos el libro de trabajo para liberar los recursos (memoria y archivos)</span>
+        <span class="s3">// Esto es importante para evitar fugas de memoria</span>
+        <span class="s1">workbook</span><span class="s2">.</span><span class="s1">close</span><span class="s2">();</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>
