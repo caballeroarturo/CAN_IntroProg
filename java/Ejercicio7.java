@@ -9,6 +9,8 @@ public class Ejercicio7 {
         
         boolean bandera = false;
         
+        System.out.println("-------------------------------------");
+        
         if ((n % 4 == 0 && n % 100 != 0) || (n % 400 == 0)) {
             bandera = true;
         }

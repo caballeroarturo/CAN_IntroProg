@@ -6,7 +6,8 @@ public class j12_CicloFor_ControlBreak {
         for (int i = 1; i <= 10; i++) {
 
             // Mostramos el número actual
-            System.out.println("Número: " + i);
+            System.out.println("--------------");
+            System.out.println("Número = " + i);
 
             // Si el número es 5, detenemos el ciclo
             if (i == 5) {

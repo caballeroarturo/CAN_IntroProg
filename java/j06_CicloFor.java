@@ -19,14 +19,14 @@ public class j06_CicloFor {
         System.out.println("----------------------");
 
         // La condición del ciclo for es verdadera mientras 
-        // i sea menor o igual a 5
+        // i sea menor o igual a 3
 
         // int i = 1; i es un entero e inicia en 1
-        // i<=5; i es menor o igual a 5, es decir a lo más es 5
+        // i<=3; i es menor o igual a 3, es decir a lo más es 3
         // i++; i se incrementa en 1
-        for (int i = 1; i <= 5; i++) {
+        for (int i = 1; i <= 3; i++) {
         
-            System.out.println("Número: " + i);
+            System.out.println("Número = " + i);
         
         }
 

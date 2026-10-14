@@ -2,7 +2,7 @@ public class j17_Arreglos_2 {
 public static void main(String[] args) {
        
     // Inicialización directa con valores
-        double[] precios = {19.99, 5.50, 12.00, 4.25};
+        double[] precios = {19.99, 5.50, 12.00, 4.25, 7.5};
         double total = 0;
 
         /* cómo recorrer un arreglo inicializado directamente para 

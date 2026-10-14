@@ -2,39 +2,41 @@ public class Main {
     public static void main(String[] args) {
 
         /* constructor = Metodo para inicializar objetos
-                        Puedes pasar argumentos y
-                          establecer parametros iniciales
+                        Podemos establecer parametros iniciales
         */
 
         // objeto student1 creado a partir de una instancia de la clase Estudiante
-        Estudiante student1 = new Estudiante("Javier", 30, 9.2);
-        Estudiante student2 = new Estudiante("Roberto", 34, 8.5);
-        Estudiante student3 = new Estudiante("María", 27, 8.0);
+        // el objeto se crea con el operador "new" cuando crea la nueva instancia de la clase
 
-        // Primer estudiante
-        System.out.println(student1.name);
-        System.out.println(student1.age);
-        System.out.println(student1.nota);
-        System.out.println(student1.isEnrolled);
-        System.out.println("----------------");
+        // La Clase es el qué (la definición).
+        // El Objeto es el quién (la entidad viva en memoria).
+        // El Constructor es el cómo (la forma en que ese objeto cobra vida y se configura).
 
-        // Segundo estudiante
-        System.out.println(student2.name);
-        System.out.println(student2.age);
-        System.out.println(student2.nota);
-        System.out.println(student2.isEnrolled);
-        System.out.println("----------------");
+        //                        Estudiante(String name, int age, double nota, int grupo, String sexo)
+        Estudiante student1 = new Estudiante("Javier", 30, 9.2, 1, "Hombre",  "Licenciatura-1");
+        Estudiante student2 = new Estudiante("Maria", 25, 8.5, 2, "Mujer", "Licenciatura-2");
 
-        // Tercer estudiante
-        System.out.println(student3.name);
-        System.out.println(student3.age);
-        System.out.println(student3.nota);
-        System.out.println(student3.isEnrolled);
-        System.out.println("----------------");
+        System.out.println("nombre: " + student1.name);
+        System.out.println("grado: " + student1.grado);
+        System.out.println("carrera: " + student1.carrera);
+
+        student1.grado = "Cuatrimestre 1 - Ingeniería";
+        System.out.println("grado: " + student1.grado);
+
+        System.out.println("----------------------------");
+
+        System.out.println("nombre: " + student2.name);
+        System.out.println("grado: " + student2.grado);
+        System.out.println("carrera: " + student2.carrera);
+        
 
 
-        student1.study();
-        student2.study();
-        student3.study();
+
+
+
+
+
+
+
     }
 }

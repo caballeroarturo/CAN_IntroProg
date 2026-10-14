@@ -10,8 +10,8 @@ public class Ejercicio2 {
         int y = 0;
         
         while (x > 0) {
-            y += x;
-            x--;
+            y += x; // Esto significa que y = y + x
+            x--; // esto significa que x = x - 1
         }
         
         System.out.println("El valor final calculado es: " + y);

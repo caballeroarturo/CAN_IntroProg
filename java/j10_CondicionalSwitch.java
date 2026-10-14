@@ -4,6 +4,7 @@ public class j10_CondicionalSwitch {
 
         int dia = 3;
 
+        System.out.println("\n-----------\n");
         switch (dia) {
             case 1: // aqui dice: cuando dia sea igual a 1
                 System.out.println("Lunes");

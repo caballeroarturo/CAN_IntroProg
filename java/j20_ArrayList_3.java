@@ -11,13 +11,15 @@ public class j20_ArrayList_3 {
         tareas.add("Lavar trastes");   // Posición 0
         tareas.add("Estudiar Java");   // Posición 1
         tareas.add("Ir al gimnasio");  // Posición 2
+        System.out.println("Lista inicial: " + tareas);
+        System.out.println("------------------------------");
 
         // También puedes usar .add(índice, objeto) para INSERTAR en una posición específica:
         tareas.add(1, "Comprar leche"); // Inserta en posición 1 y empuja el resto hacia abajo
 
         System.out.println("Lista actual: " + tareas);
         // Resultado: [Lavar trastes, Comprar leche, Estudiar Java, Ir al gimnasio]
-
+        System.out.println("------------------------------");
 
         System.out.println("\n=== 2. MÉTODO .get() ===");
         // .get(índice) OBTIENE y lee el objeto en esa posición sin modificar la lista.
@@ -27,6 +29,7 @@ public class j20_ArrayList_3 {
         System.out.println("Objeto en la posición 0: " + primeraTarea);
         System.out.println("Objeto en la posición 1: " + segundaTarea);
 
+        System.out.println("------------------------------");
 
         System.out.println("\n=== 3. MÉTODO .set() ===");
         // .set(índice, nuevoObjeto) REEMPLAZA el objeto que estaba en esa posición por uno nuevo.
@@ -36,7 +39,8 @@ public class j20_ArrayList_3 {
         System.out.println("Lista tras modificar la posición 1: " + tareas);
         // Resultado: [Lavar trastes, Comprar fruta, Estudiar Java, Ir al gimnasio]
 
-
+        System.out.println("------------------------------");
+        
         System.out.println("\n=== 4. MÉTODO .remove() ===");
         // Tiene dos variantes principales para ELIMINAR objetos:
 

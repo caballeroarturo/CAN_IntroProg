@@ -16,6 +16,7 @@ public class j16_Arreglos_1 {
         System.out.println("Tamaño del arreglo: " + puntuaciones.length);
         System.out.println("Puntuación en la posición 0: " + puntuaciones[0]);
         System.out.println("Puntuación en la posición 1: " + puntuaciones[1]);
+        System.out.println("Puntuación en la posición 2: " + puntuaciones[2]);
     }
 }
 

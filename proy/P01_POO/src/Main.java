@@ -7,36 +7,77 @@ public class Main {
 
         // Para crear un objeto car1 usamos:
         // Clase objeto = nueva instancia de la clase
-        Car car1 = new Car();
+        
+        Car vocho = new Car();
+        Car audi  = new Car();
+        // -------------------------------------
 
-        // Clase objeto de car2 = nueva instancia de la clase
-        Car car2 = new Car();
+        // ----> Los atributos de los objetos
 
         // Para acceder a los elementos del objeto usamos el operador punto
         // seguido del nombre del atributo
-        System.out.println(car1.make);
-        System.out.println(car1.model);
-        System.out.println(car1.price);
-
-        // se pueden modificar los atributos de una clase
+        System.out.println(vocho.make);
+        System.out.println(vocho.model);
+        System.out.println(vocho.year);
+        System.out.println(vocho.price);
+        System.out.println(vocho.isRunning);
         System.out.println("---------------");
-        car1.year= 2018;
-        car1.model = "Tucson";
-        System.out.println(car1.year);
-        System.out.println("Modelo de car1: " + car1.model);
-        System.out.println("Modelo de car2: " + car2.model);
 
-        // acciones del auto
+        vocho.make = "VW";
+        vocho.model = "Vocho sedan";
+        vocho.year = 2010;
+        vocho.price = 100000.0;
+        vocho.isRunning = false;
+
         System.out.println("---------------");
-        System.out.println("Car1 esta encendido: "+ car1.isRunning);
-        System.out.println("Car2 esta encendido: "+ car2.isRunning);
+        System.out.println("Make: " +  vocho.make);
+        System.out.println("Model: " + vocho.model);
+        System.out.println("Year: " + vocho.year);
+        System.out.println("Price: " + vocho.price);
+        System.out.println("Esta encendido: " + vocho.isRunning);
 
-        car2.start();
-        System.out.println("Car2 esta encendido: "+ car2.isRunning);
-        System.out.println("Car1 esta encendido: "+ car1.isRunning);
+        System.out.println("---------------");
+        System.out.println("Make: " + audi.make);
+        System.out.println("Model: " + audi.model);
 
-        car2.stop();
-        System.out.println("Car2 esta encendido: "+ car2.isRunning);
-        System.out.println("Car1 esta encendido: "+ car1.isRunning);
+        System.out.println("---------------");
+
+        audi.make = "Audi";
+        audi.model = "A4";
+        audi.year = 2015;
+        audi.price = 600000.0;
+        audi.isRunning = true;
+
+        System.out.println("---------------");
+
+        System.out.println("Make: " +  audi.make);
+        System.out.println("Model: " + audi.model);
+        System.out.println("Year: " + audi.year);
+        System.out.println("Price: " + audi.price);
+        System.out.println("Esta encendido: " + audi.isRunning);
+        
+        System.out.println("---------------");
+
+  
+
+        
+
+        // ---> las acciones que pueden hacer nuestros objetos
+
+        System.out.println("---------------");
+        System.out.println("Car1 esta encendido: "+ vocho.isRunning);
+        System.out.println("Car2 esta encendido: "+ audi.isRunning);
+        System.out.println("---------------");
+
+        vocho.start();
+        audi.stop();
+
+        System.out.println("---------------");
+        System.out.println("Car1 esta encendido: "+ vocho.isRunning);
+        System.out.println("Car2 esta encendido: "+ audi.isRunning);
+        System.out.println("---------------");
+        
+        vocho.brake();
+        audi.drive();
     }
 }

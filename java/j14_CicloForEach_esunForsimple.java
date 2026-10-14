@@ -13,8 +13,7 @@ public class j14_CicloForEach_esunForsimple {
             // almacena uno de los elementos del arreglo.
             System.out.println("Hola " + nombre);
         }
-
-
+        
         System.out.println("----------------------------");
         System.out.println("Con For tradicional");
 

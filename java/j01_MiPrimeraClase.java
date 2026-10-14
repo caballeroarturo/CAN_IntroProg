@@ -1,6 +1,3 @@
-// Variables en java
-// las variables se tienen que declarar
-
 public class j01_MiPrimeraClase {
     public static void main(String[] args) {
         // Declarar una variable = darle nombre y tipo
