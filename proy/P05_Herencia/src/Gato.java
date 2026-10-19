@@ -1,4 +1,5 @@
 public class Gato extends Animal {
+
     private boolean esCazador;
 
     // ----------------------------------------
@@ -17,4 +18,5 @@ public class Gato extends Animal {
     public void ronronear() {
         System.out.println(nombre + " está ronroneando tranquilamente.");
     }
+
 }

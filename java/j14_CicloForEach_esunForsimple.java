@@ -3,6 +3,7 @@ public class j14_CicloForEach_esunForsimple {
 
         // Declaramos un arreglo de nombres
         String[] nombres = {"Ana", "Luis", "Carlos", "María", "Sofía"};
+        // String nombre = "Luis" sin los corchetes [] es una variable, con los corchetes es un arreglo;
 
         System.out.println("Con For Each");
         System.out.println("----------------------------");
