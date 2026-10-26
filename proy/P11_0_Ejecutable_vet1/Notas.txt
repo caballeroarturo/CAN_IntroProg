@@ -1,0 +1,1 @@
+& CProgram FilesJavajdk-25.0.3binjpackage.exe --type app-image --name SistemaVeterinaria --input . --main-jar P11_Ejecutable_vet1-1.0-SNAPSHOT.jar --main-class VentanaVeterinariaDAO

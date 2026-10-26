@@ -1,5 +1,12 @@
 public class CuentaBancaria {
     // 1. Atributos privados (ocultos al exterior)
+
+    /* private → solo dentro de la misma clase
+       public → accesible desde cualquier lugar
+       protected → misma clase + subclases + mismo paquete
+       default (sin modificador) → solo mismo paquete
+    */
+
     private String titular;
     private double saldo;
 
@@ -17,7 +24,7 @@ public class CuentaBancaria {
     // Si usas getSaldo(): El código que usa tu clase no se entera del cambio.
     // Por fuera siguen llamando a getSaldo(), y tú por dentro modificas el código
     // para que haga la suma. Nadie se rompe
-    // Si usaras cuenta.saldo directamente Todo el programa dependeria de esa variable exacta.
+    // Si usaras cuenta.saldo directamente todo el programa dependeria de esa variable exacta.
     //  Si cambias la estructura interna, tendrías que modificar el código de todo el proyecto
     public String getTitular() {
         return titular;
@@ -31,7 +38,7 @@ public class CuentaBancaria {
     // 4. Metodo Modificador controlado para depositar dinero
     public void depositar(double monto) {
         if (monto > 0) {
-            saldo += monto;
+            saldo += monto; // saldo = saldo + monto
             System.out.println("Depósito exitoso. Nuevo saldo: " + saldo);
         } else {
             System.out.println("El monto a depositar debe ser mayor a cero.");

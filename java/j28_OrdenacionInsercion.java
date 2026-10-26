@@ -8,18 +8,23 @@ public class j28_OrdenacionInsercion {
         // Empezamos desde el índice 1, porque el índice 0 ya se considera "ordenado"
         for (int i = 1; i < n; i++) {
             
+            // {12,1,13,5,6}
             // Guardamos el valor actual que vamos a insertar
             int clave = arreglo[i];
             int j = i - 1;
+            System.out.println("-------- i = " + i + "  ----");
 
             // Movemos los elementos mayores que "clave" una posición a la derecha
             while (j >= 0 && arreglo[j] > clave) {
+                System.out.println("--- j = " + j);
                 arreglo[j + 1] = arreglo[j];
                 j--;
+                System.out.println(Arrays.toString(arreglo));
             }
 
             // Insertamos la "clave" en su lugar correcto
             arreglo[j + 1] = clave;
+            
             System.out.println(Arrays.toString(arreglo));
         }
     }

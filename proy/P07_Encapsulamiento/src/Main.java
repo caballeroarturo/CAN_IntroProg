@@ -16,6 +16,7 @@ public class Main {
         System.out.println("Titular: " + cuenta.getTitular());
         System.out.println("Saldo inicial: " + cuenta.getSaldo());
 
+
         // Realizar operaciones
         cuenta.depositar(200.0);
         cuenta.retirar(100.0);

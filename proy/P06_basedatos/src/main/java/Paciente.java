@@ -2,7 +2,7 @@ public class Paciente {
     // Este archivo define la estructura del objeto
     // Paciente en la memoria
     private int id;
-    private String nombre;
+    private String nombre; // wrappers
     private String especie;
     private int edad;
 
