@@ -4,6 +4,7 @@ public class j36_BusquedaBinaria {
         System.out.println("=== EJEMPLO DE BÚSQUEDA BINARIA ===");
 
         // REQUISITO: El arreglo DEBE estar ordenado de menor a mayor
+        //                         0   1   2   3   4   5   6   7   8
         int[] numerosOrdenados = {10, 20, 30, 40, 50, 60, 70, 80, 90};
         
         int numeroBuscado = 60; // El valor que queremos encontrar

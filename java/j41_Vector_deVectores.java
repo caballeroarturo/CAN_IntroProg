@@ -12,13 +12,14 @@ public class j41_Vector_deVectores {
         // -----------------------------------------
         // 2. CREACIÓN Y LLENADO DE LOS VECTORES INTERNOS
         // -----------------------------------------
-        
+        // vectordevectores(vector1, vector2, vector3)
+
         // Creamos el primer vector interno (Fila 0) con 3 elementos
         ArrayList<Integer> vector1 = new ArrayList<>();
         vector1.add(10);
         vector1.add(20);
         vector1.add(30);
-
+                
         // Creamos el segundo vector interno (Fila 1) con solo 2 elementos (¡tamaño variable!)
         ArrayList<Integer> vector2 = new ArrayList<>();
         vector2.add(40);

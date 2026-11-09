@@ -7,7 +7,7 @@ public class j38_VentanaVacia {
         JFrame ventana = new JFrame("Nivel 1: Mi Primera Ventana");
 
         // 2. Definimos el tamaño de la ventana (ancho y alto en píxeles)
-        ventana.setSize(400, 300);
+        ventana.setSize(500, 500);
 
         // 3. Indicamos qué debe hacer el programa cuando el usuario cierre la ventana 
         // (Esto es vital para que el proceso de Java termine correctamente al hacer clic en la "X")

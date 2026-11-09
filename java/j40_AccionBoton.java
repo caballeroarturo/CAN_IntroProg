@@ -1,6 +1,7 @@
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
@@ -10,7 +11,7 @@ public class j40_AccionBoton {
     public static void main(String[] args) {
         // 1. Creamos la ventana principal
         JFrame ventana = new JFrame("Nivel 3: Botones Interactivos");
-        ventana.setSize(400, 250);
+        ventana.setSize(400, 300);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.setLocationRelativeTo(null);
         ventana.setLayout(null);

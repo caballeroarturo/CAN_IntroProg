@@ -23,7 +23,7 @@ public class j35_BusquedaSecuencial {
     public static int buscarSecuencial(int[] arreglo, int valorBuscado) {
         // Recorremos el arreglo elemento por elemento desde el inicio (índice 0) hasta el final
         for (int i = 0; i < arreglo.length; i++) {
-            
+            System.out.println("-> Analizando el valor " + arreglo[i] + " (en el índice " + i + ")");
             // Comparamos el elemento actual con el valor que buscamos
             if (arreglo[i] == valorBuscado) {
                 return i; // Si coincide, devolvemos el índice de inmediato
