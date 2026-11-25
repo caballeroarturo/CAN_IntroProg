@@ -1,6 +1,6 @@
 // Clase que representa cada eslabón (nodo)
 class MiNodo {
-    String texto;
+    String texto;   // Contenido del nodo
     MiNodo siguiente; // El puntero que apunta al siguiente elemento
 
     public MiNodo(String texto) {

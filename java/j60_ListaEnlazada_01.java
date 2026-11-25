@@ -1,13 +1,13 @@
 class Nodo {
-    int dato;
+    int dato;  // este es su dato o atributo, el propio del nodo
     Nodo siguiente; // Aquí está el "enlace" que apunta al próximo nodo
 
+    // constructor 
     public Nodo(int dato) {
         this.dato = dato;
         this.siguiente = null;
     }
 }
-
 public class j60_ListaEnlazada_01 {
     public static void main(String[] args) {
         // 1. Creamos 3 nodos sueltos con sus valores
@@ -32,6 +32,7 @@ public class j60_ListaEnlazada_01 {
         porque es la misma casa. */
         
         System.out.println("--- RECORRIENDO LA LISTA ---");
+        
         while (actual != null) {
             System.out.println("Elemento actual: " + actual.dato);
             actual = actual.siguiente; // Saltamos al siguiente nodo

@@ -2,9 +2,10 @@ public class j21_Primitivo_vs_Objetos {
 
     public static void main(String[] args) {
 
-        // ==========================================
+         // ----------------------
         // 1. TIPO PRIMITIVO (int) - "Solo el valor"
-        // ==========================================
+        // ----------------------
+        //         
         int edadPrimitiva = 25;
 
         System.out.println("--- Tipo de dato primitivo ---");
@@ -12,7 +13,6 @@ public class j21_Primitivo_vs_Objetos {
 
         // Si intentas poner "edadPrimitiva." para usar un método/función...
         // ❌ ¡No puedes! No tiene métodos. Solo guarda el número 25.
-
 
         // ==========================================
         // 2. OBJETO / WRAPPER (Integer) - "Valor + Herramientas"

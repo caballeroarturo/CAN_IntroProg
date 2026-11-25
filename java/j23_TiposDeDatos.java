@@ -46,7 +46,7 @@ public class j23_TiposDeDatos {
         // A. Cadenas de texto (String)
         String nombreClinica = "Clinica Veterinaria San Francisco";
         System.out.println("String: " + nombreClinica);
-
+        
         // B. Clases Envoltorios (Wrappers) - Versión objeto de los primitivos
         Integer edadMaximaObj = 20; 
         Double pesoObj = 15.5;
@@ -54,19 +54,21 @@ public class j23_TiposDeDatos {
         Character letraObj = 'X';
         System.out.println("Wrapper Integer: " + edadMaximaObj);
         System.out.println("Wrapper Double: " + pesoObj);
+        System.out.println("Wrapper Boolean: " + estadoObj);
+        System.out.println("Wrapper Character: " + letraObj);
 
         // C. Arrays (Arreglos)
         int[] diasMes = {31, 28, 31, 30}; // Arreglo de enteros primitivos
         String[] nombresDoctores = {"Dr. House", "Dra. Grey", "Dr. Dolittle"}; // Arreglo de Strings
         
-        System.out.println("Array (Primer día del mes): " + diasMes[0]);
-        System.out.println("Array (Segundo doctor): " + nombresDoctores[1]);
+        System.out.println("Array (Primer valor del arreglo diasMes): " + diasMes[0]);
+        System.out.println("Array (Segundo valor del arereglo nombresDoctores): " + nombresDoctores[1]);
 
         // D. Objetos definidos por el usuario (Creando una instancia de nuestra clase Paciente)
 
         // Clase    MiNomClase  OP new
         Paciente miMascota = new Paciente("Firulais", 3);
-        System.out.println("Objeto Personalizado (Paciente): " + miMascota.nombre + ", " + miMascota.edad + " anios.");
+        System.out.println("Objeto Personalizado (Paciente): " + miMascota.nombre + ", " + miMascota.edad + " años.");
 
         // E. Clases de la Biblioteca Estándar de Java (Ej: ArrayList)
         ArrayList listaMedicamentos = new ArrayList<>();

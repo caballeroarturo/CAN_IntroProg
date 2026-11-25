@@ -14,7 +14,7 @@ public class j62_insertarCabecera {
     NodoCabecera cabeza;
 
     public j62_insertarCabecera() {
-        this.cabeza = null;
+        this.cabeza = null; // estwo no es indispensable, es buena práctica
     }
 
     public void insertarEnCabecera(String dato) {
@@ -32,6 +32,7 @@ public class j62_insertarCabecera {
     public void mostrarLista() {
         NodoCabecera actual = cabeza;
         System.out.print("Lista actual: [ ");
+        
         while (actual != null) {
             System.out.print(actual.dato + " -> ");
             actual = actual.siguiente;
