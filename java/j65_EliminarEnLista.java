@@ -40,9 +40,11 @@ public class j65_EliminarEnLista {
         System.out.println("null ]");
     }
 
-    // ==========================================
-    // MÉTODO DE ELIMINACIÓN
-    // ==========================================
+    // ----------------
+    // MÉTODO (funcicón) DE ELIMINACIÓN
+    // este no es el main, solo es la definición del 
+    // método eliminar
+    // ----------------
     public void eliminar(String objetivo) {
         if (cabeza == null) {
             System.out.println("La lista está vacía.");

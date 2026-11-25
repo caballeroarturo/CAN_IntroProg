@@ -55,8 +55,8 @@ public class j63_insertarEnMedio {
     En un arreglo común (String[]): Los elementos están guardados 
         en casillas contiguas, uno al lado del otro. Java los 
         conoce todos de golpe, por eso cuando haces 
-        System.out.println(arreglo), Java sabe leerlos todos de 
-        un tirón.
+        System.out.println(arreglo), Java puede leerlos todos de 
+        una sola vez.
     En una lista enlazada: Los nodos son cajitas completamente 
         independientes y regadas por la memoria. La única forma de 
         saber dónde está la siguiente cajita es abrir la actual y 

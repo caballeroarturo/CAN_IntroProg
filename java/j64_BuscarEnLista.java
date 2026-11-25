@@ -18,7 +18,8 @@ public class j64_BuscarEnLista {
         this.cabeza = null;
     }
 
-    // Método rápido para agregar elementos al final
+    // Método (función) rápido para agregar elementos al final
+    // que agrega elementos en la parte final de la lista enlazada 
     public void agregarAlFinal(String dato) {
         NodoBusqueda nuevo = new NodoBusqueda(dato);
         if (cabeza == null) {
@@ -32,9 +33,10 @@ public class j64_BuscarEnLista {
         }
     }
 
-    // ==========================================
-    // MÉTODO DE BÚSQUEDA
-    // ==========================================
+    // ------------------
+    // MÉTODO (función) DE BÚSQUEDA
+    // es para buscar un elemento en la lista enlazada
+    // ------------------
     public boolean buscar(String objetivo) {
         NodoBusqueda actual = cabeza; // 1. Empezamos el recorrido en la cabeza
 
@@ -52,7 +54,8 @@ public class j64_BuscarEnLista {
 
         return false; // No se encontró
     }
-
+    
+    // Aquí inicia el programa principal
     public static void main(String[] args) {
         j64_BuscarEnLista supermercado = new j64_BuscarEnLista();
 
@@ -65,6 +68,7 @@ public class j64_BuscarEnLista {
         // Probamos buscando un elemento que SÍ existe
         String buscado1 = "Uva";
         System.out.println("Buscando: " + buscado1);
+
         if (supermercado.buscar(buscado1)) {
             System.out.println("-> ¡Resultado: SÍ se encontró '" + buscado1 + "' en la lista!\n");
         } else {
@@ -77,7 +81,7 @@ public class j64_BuscarEnLista {
         if (supermercado.buscar(buscado2)) {
             System.out.println("-> ¡Resultado: SÍ se encontró '" + buscado2 + "'!\n");
         } else {
-            System.out.println("-> ¡Resultado: El elemento '" + buscado2 + "' NO está en la lista.\n");
+            System.out.println("-> ¡Resultado: El elemento '" + buscado2 + "' No está en la lista.\n");
         }
     }
 }
